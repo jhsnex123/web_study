@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+h1{
+text-shadow : 2px 2px 5px green;
+}
+
+input1{
+ width: 500px;
+	
+}
+input2{
+ width: 100px;
+	
+}
+input3{
+ width: 100px;
+	
+}
+input4{
+ width: 100px;
+	
+}
+
+</style>	
+</head>
+<body>
+<h1>회원 정보를 입력하십시오.</h1>
+<hr>
+
+		<form action="" method="get">
+			<input id = input1 name=name placeholder="이름을 입력하세요" required><br> 
+			<input id = input2 name=name placeholder="전화번호를 입력하세요" required><br> 
+			<input id = input3 name=name placeholder="계정을 입력하세요" required><br> 
+			<input id = input4 name=name placeholder="패스워드를 입력하세요" required><br>
+			<br> 
+			<input type="submit" value="등록"> 
+			<input type="reset" value="재작성">
+		</form>
+	
+</body>
+</html>

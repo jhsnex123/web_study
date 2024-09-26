@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+h1{
+text-shadow : 2px 2px 5px green;
+}
+
+div{
+    box-sizing: border-box;
+	border-radius : 300px;
+	border-style: double;
+}
+
+</style>	
+</head>
+<body>
+<h1>회원 정보를 입력하십시오.</h1>
+<hr>
+
+		<form action="...." method="get">
+			<div><input name=name placeholder="이름을 입력하세요" required><br> </div>
+			<div><input name=name placeholder="전화번호를 입력하세요" required><br> </div>
+			<div><input name=name placeholder="계정을 입력하세요" required><br> </div>
+			<div><input name=name placeholder="패스워드를 입력하세요" required><br></div>
+			<br> 
+			<div><input type="submit" value="등록"> </div>
+			<div><input type="reset" value="재작성"></div>
+		</form>
+	
+</body>
+</html>

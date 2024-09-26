@@ -1,0 +1,69 @@
+package jdbcexam.lab;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class StudentMain {
+
+	public static void main(String[] args) {
+		StudentDAO dao= new StudentDAO();
+		Scanner sc= new Scanner(System.in);
+		
+		loop: while(true) {
+			System.out.println("처리하려는 기능을 선택하세요.");
+			System.out.println("1.학생 정보 출력");
+			System.out.println("2.학생 정보 입력");
+			System.out.println("3.학생 점수 확인");
+			System.out.println("4.종료");
+			System.out.println("입력:");
+			
+			String str="";
+			str=sc.nextLine();
+			int score=Integer.parseInt(str);
+			List<StudentDTO> list= new ArrayList<StudentDTO>();
+			
+			switch(str) {
+			//입력
+				case "2": {
+					while(true) {
+						StudentDTO dto=new StudentDTO();
+						String name=sc.nextLine();
+						dto.setName(name);
+						int jumsu=sc.nextInt();
+						dto.setScore(score);
+						if() {
+							System.out.println("입력성공");
+						}else {
+							System.out.println("입력실패");
+							
+						}
+						
+					}
+				}
+				
+				case "1" : {
+					while(true) {
+						dao.getAllStudent();
+					}
+				}
+				
+				case "3" :{
+					String name=sc.nextLine();
+					dao.getScore(dto);
+					if(sc.hasNext()) {
+						System.out.println(dto.getName()+"학생의 점수는"+dto.getScore()+"입니다.");
+					}else {
+						System.out.println(dto.getName()+"학생은 존재하지 않습니다.");
+					}
+				}
+				
+				case "4":{
+					
+				}
+			}
+			
+		}
+	}
+
+}

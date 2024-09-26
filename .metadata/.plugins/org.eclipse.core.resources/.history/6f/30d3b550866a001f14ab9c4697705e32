@@ -1,0 +1,22 @@
+package day16;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class CountLab {
+
+	public static void main(String[] args) {
+		String path="src\\day16";
+		int cnt=0;
+		
+		try {
+			FileReader fr= new FileReader(path);
+			String str= fr.toString();
+//			String word= str.toUpperCase("yestserday");
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

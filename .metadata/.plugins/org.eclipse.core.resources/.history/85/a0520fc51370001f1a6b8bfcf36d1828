@@ -1,0 +1,68 @@
+package jdbcexam.lab;
+
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class StudentDAO {
+	public boolean insertStudent(StudentDTO dto){
+		boolean result = false;
+		Connection conn = MySQLConnUtil.connect();
+		
+		try(PreparedStatement pstmt = conn.prepareStatement("insert into student values(?,?)");) {
+			pstmt.setString(1, dto.getName());
+			pstmt.setInt(2, dto.getScore());
+			pstmt.executeUpdate();
+			result = true;
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		MySQLConnUtil.close(conn);
+		return result;
+	}
+
+	public List<StudentDTO> getAllStudent(){
+		Connection conn=MySQLConnUtil.connect();
+		List<StudentDTO> list= new ArrayList<StudentDTO>();
+		try(Statement stmt= conn.createStatement();
+			ResultSet rs=stmt.executeQuery("select name,score from student");){
+			
+			while(rs.next()) {
+				StudentDTO vo= new StudentDTO();
+				vo.setName(rs.getString("name"));
+				vo.setScore(rs.getInt("score"));
+				list.add(vo);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		MySQLConnUtil.close(conn);
+		return list;
+	}
+	
+	public StudentDTO getScore(StudentDTO dto) {
+		Connection conn=MySQLConnUtil.connect();
+		Scanner scan= new Scanner(System.in);
+		try(Statement stmt=conn.createStatement();
+			ResultSet rs=stmt.executeQuery("select ename from student");) {
+			
+			if(rs.getString("name")==scan.nextLine()) {
+				
+			}else {
+				return null;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		MySQLConnUtil.close(conn);
+		
+	}
+}

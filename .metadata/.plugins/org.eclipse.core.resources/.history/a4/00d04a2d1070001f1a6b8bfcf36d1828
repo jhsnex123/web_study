@@ -1,0 +1,40 @@
+package jdbcexam.lab;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+public class StudentDAO {
+	public boolean insertStudent(StudentDTO dto){
+		boolean result = false;
+		Connection conn = MySQLConnUtil.connect();
+		
+		try(PreparedStatement pstmt = conn.prepareStatement("insert into student values(?,?)");) {
+			pstmt.setString(1, dto.getName());
+			pstmt.setInt(2, dto.getScore());
+			ResultSet rs = null;
+			pstmt.executeUpdate();
+			result = true;
+
+			System.out.println();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		MySQLConnUtil.close(conn);
+		return result;
+	}
+
+	public List<StudentDTO> getAllStudent(){
+		Connection conn=MySQLConnUtil.connect();
+		PreparedStatement pstmt= conn.prepareStatement("select name, score from student");
+		try {
+			
+		}catch{
+			
+		}
+	}
+}

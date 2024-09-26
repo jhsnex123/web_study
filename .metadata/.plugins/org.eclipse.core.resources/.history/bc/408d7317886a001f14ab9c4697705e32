@@ -1,0 +1,28 @@
+package day16;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+
+public class CountLab {
+
+	public static void main(String[] args) {
+		String path="src\\day16";
+		BufferedReader br= null;
+		int cnt=0;
+		
+		try {
+			FileReader fr= new FileReader(path);
+			String str= (br.readLine());
+			
+			String word= str.toLowerCase("yesterday");
+			cnt=Integer.parseInt(word);
+			
+			System.out.println(word+"라는 단어는"+cnt+"개 있습니다.");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
