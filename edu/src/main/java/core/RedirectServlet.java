@@ -10,8 +10,8 @@ public class RedirectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("RedirectServlet 수행");
-		response.sendRedirect("/edu/first.html"); // 절대 URI
-		//response.sendRedirect("http://www.naver.com/");
+		/* response.sendRedirect("/edu/first.html"); */ // 절대 URI
+		response.sendRedirect("http://www.naver.com/");          //redirect는 내가 연결할 url만 지정해주면 된다
 	}
 }
 

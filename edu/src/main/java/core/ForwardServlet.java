@@ -12,7 +12,7 @@ public class ForwardServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("ForwardServlet 수행");
 		RequestDispatcher rd = 
-				request.getRequestDispatcher("/first.html"); // 상대 URI
+				request.getRequestDispatcher("/first.html"); // 상대 URI  --> 컨텍스트패스는 생략
 		/*RequestDispatcher rd = 
 				request.getRequestDispatcher("http://www.naver.com/");*/
 		rd.forward(request,  response);
