@@ -2,6 +2,8 @@ package core;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,10 +26,9 @@ public class ReservationServlet extends HttpServlet {
 		String stName = request.getParameter("stname");
 		String genDer = request.getParameter("gender");
 		String addReq[] = request.getParameterValues("addReq");
-		String date_Of_Reservation = request.getParameter("date_of_reservation");
+		String date = request.getParameter("date");
 		
-		
-		
+
 		PrintWriter out = response.getWriter();
 		if(stName == null || stName.length() == 0) {
 			RequestDispatcher rd = 
@@ -55,10 +56,18 @@ public class ReservationServlet extends HttpServlet {
 				}
 			}
 		}
-		out.println("<li> 예약날짜 : "+date_Of_Reservation+"</li>");
-		out.println("<br>");
 		
+		if(date.equals("")) {
+			out.print("없음");
+		}else {
+			LocalDate parse = LocalDate.parse(date);
+			DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
+			String dateString = dateTimeFormatter.format(parse);
+			out.print("<li>예약날짜 : "+dateString);
+		} 
+		out.print("<br>");
 		out.print("<a href='"+request.getHeader("referer")+"'>예약입력화면으로</a>");
+		
 	}
 
 }
