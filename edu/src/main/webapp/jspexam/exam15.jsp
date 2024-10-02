@@ -8,7 +8,7 @@
 <title>JSTL 테스트</title>
 </head>
 <body>
-<h2>&lt;c:if&gt; 와 &lt;c:choose&gt; 태그 예제</h2>
+<h2>&lt;c:if&gt; 와 &lt;c:choose&gt; 태그 예제</h2> 
 <hr>
 <c:if test="true">
 무조건 수행<br>

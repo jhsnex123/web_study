@@ -18,7 +18,7 @@ public class LottoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8"); // 여기선 한글을 안썼기 때문에 쓸일이없음 get 방식
+		response.setContentType("text/html;charset=utf-8"); // 여기선 한글을 안썼기 때문에 쓸일이없고 get 방식이여서 딱히 필요없음
 		PrintWriter out = response.getWriter();
 		String number = request.getParameter("num");
 		int inputNumber = Integer.parseInt(number);
